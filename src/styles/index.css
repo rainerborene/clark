@@ -15,3 +15,7 @@ a {
 .btn-outline:hover {
   @apply bg-black text-white;
 }
+
+.delay {
+  animation-delay: .5s;
+}
