@@ -27,12 +27,19 @@ button {
   animation-delay: .5s;
 }
 
+/* Overriding */
+
 .slider-control-bottomcenter {
-  top: -100px !important;
+  top: -90px !important;
   left: -9px !important;
   bottom: unset !important;
   transform: none !important;
   background-color: white;
+}
+
+.slider-control-bottomcenter .bullet {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .finish .slider-control-bottomcenter {

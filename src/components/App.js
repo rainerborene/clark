@@ -21,7 +21,7 @@ export default function App() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="md:flex md:items-center md:justify-center min-h-screen">
       <TransitionGroup component={null}>
         {
           started && (
