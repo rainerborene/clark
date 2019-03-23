@@ -1,22 +1,39 @@
 import React from 'react'
 import { nextSlide, setChoice } from '../store'
 
-function handleChoiceChange({target}, identifier) {
-  setChoice({ identifier, value: target.value, selected: target.selected })
+function handleChoiceChange({target}) {
+  setChoice({
+    identifier: target.name,
+    value: target.value,
+    selected: target.checked
+  })
   nextSlide()
 }
 
-export default function QuestionChoiceItem({identifier, choice}) {
+export default function QuestionChoiceItem({identifier, choice, checkbox}) {
   return (
     <label className="block">
-      <input
-        className="align-middle mr-2"
-        type="radio"
-        name={identifier}
-        value={choice.value}
-        selected={choice.selected}
-        onChange={(e) => handleChoiceChange(e, identifier)}
-      />
+      {
+        checkbox ? (
+          <input
+            className="align-middle mr-2"
+            type="checkbox"
+            name={identifier}
+            value={choice.value}
+            checked={choice.selected}
+            onChange={handleChoiceChange}
+          />
+        ) : (
+          <input
+            className="align-middle mr-2"
+            type="radio"
+            name={identifier}
+            value={choice.value}
+            checked={choice.selected}
+            onChange={handleChoiceChange}
+          />
+        )
+      }
 
       <span className="align-middle">{choice.label}</span>
     </label>

@@ -34,8 +34,14 @@ export function setChoice({identifier, value, selected}) {
   const state = Object.assign({}, store.state)
   const question = state.questions.find(question => question.identifier === identifier)
   const choice = question.choices.find(choice => choice.value === value)
-  choice.selected = selected
 
+  if (question.multiple === "false") {
+    question.choices.forEach(item => {
+      item.selected = false
+    })
+  }
+
+  choice.selected = selected
   resetStore(state)
 }
 
